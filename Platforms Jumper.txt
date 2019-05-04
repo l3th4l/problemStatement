@@ -1,0 +1,15 @@
+
+Platforms Jumper  
+
+ 
+1 Main Menu will consist of a Start Game Button, Pressing this button will start the game. This button will take the player to the gameplay screen.
+
+2 On Touch Down or On Mouse Down a progress bar will rise from left to right (say 0  - 100). Adjust this max value as you feel fit. 
+
+3 the player will jump as soon as the user releases the touch or mouse button with the set amount of Force and Velocity that the progress bar shows.
+
+4 Limit the progress bar such that the values remain between 0 to 500 as the jump force.
+
+5 the player must land on the platform in front of him and camera should follow the player. Each successful jump will add 1 point to the player score.
+
+6 show game over screen along with score when player does not land on the platform.

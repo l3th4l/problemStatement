@@ -1,0 +1,9 @@
+/Temp
+*.csproj
+/Logs
+/Library
+/obj
+/Packages
+Assembly-CSharp.csproj
+ProblemStatement.sln
+/.vs
