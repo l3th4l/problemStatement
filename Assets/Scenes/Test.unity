@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 129765029}
   - component: {fileID: 129765028}
   - component: {fileID: 129765027}
+  - component: {fileID: 129765030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -197,13 +198,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129765026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58, y: -0.96288353, z: -18.167614}
-  m_LocalScale: {x: 1.8167615, y: 1.8167615, z: 1.8167615}
+  m_LocalPosition: {x: -3.33, y: 1, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1972478108}
-  m_Father: {fileID: 1760529205}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &129765030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129765026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ed65c72bf6b8b40a57f6a3f3aaed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LerpTime: 0.5
 --- !u!1 &220338998
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +273,7 @@ Transform:
   m_LocalScale: {x: 4.58, y: 4.7906, z: 4.7906}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &233773211
 GameObject:
@@ -446,7 +460,7 @@ RectTransform:
   - {fileID: 1256436468}
   - {fileID: 399403568}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -595,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreDisplayText: {fileID: 714740132}
-  Score: -1
+  Score: 0
 --- !u!4 &408434914
 Transform:
   m_ObjectHideFlags: 0
@@ -608,7 +622,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459172736
 GameObject:
@@ -877,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.7764706}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -886,18 +900,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
-    m_FontStyle: 0
+    m_FontSize: 27
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 139
     m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 'Score : 0'
 --- !u!222 &714740133
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -922,7 +936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 95.94}
+  m_AnchoredPosition: {x: 0, y: 203}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &718795419
@@ -1203,10 +1217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c946743fc48dc44fa660f4a24faf86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 7
+  spawnDistance: 6
   spawnHeight: 0.2
-  distanceVariation: 4
-  heightvariation: 3
+  distanceVariation: 2
+  heightVariation: 0
   platformBufferSize: 15
   extraPlatforms: 5
   startingPlatform: {fileID: 1344185216}
@@ -1275,7 +1289,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154338760
 GameObject:
@@ -1901,7 +1915,7 @@ GameObject:
   - component: {fileID: 1760529206}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1930,6 +1944,7 @@ MonoBehaviour:
   ScorePerLand: 1
   jumpDir: {x: 1, y: 1}
   dead: 0
+  midAir: 0
 --- !u!50 &1760529202
 Rigidbody2D:
   serializedVersion: 4
@@ -2036,8 +2051,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.1, y: 1.53, z: 0}
   m_LocalScale: {x: 0.55043, y: 0.55043, z: 0.55043}
-  m_Children:
-  - {fileID: 129765029}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2256,7 +2270,7 @@ Transform:
   m_GameObject: {fileID: 1972478106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 10}
-  m_LocalScale: {x: 3.2295845, y: 2.8635843, z: 1.464}
+  m_LocalScale: {x: 2.3247266, y: 2.3247266, z: 2.3247266}
   m_Children: []
   m_Father: {fileID: 129765029}
   m_RootOrder: 0

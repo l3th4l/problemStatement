@@ -12,7 +12,7 @@ public class PlatformSpawn : MonoBehaviour
     [SerializeField]
     float distanceVariation;
     [SerializeField]
-    float heightvariation;
+    public float heightVariation;
     [SerializeField]
     int platformBufferSize;
     [SerializeField]
@@ -42,7 +42,7 @@ public class PlatformSpawn : MonoBehaviour
         lastPos = startingPlatform.transform.position;
         for(int i = 0; i < platformBufferSize - extraPlatforms; i++)
         {
-            Vector3 spawnPos = new Vector3(spawnDistance + Random.Range(-distanceVariation / 2, distanceVariation / 2), spawnHeight + Random.Range(-heightvariation / 2, heightvariation / 2));
+            Vector3 spawnPos = new Vector3(spawnDistance + Random.Range(-distanceVariation / 2, distanceVariation / 2), spawnHeight + Random.Range(-heightVariation / 2, heightVariation / 2));
             platformBuffer.Add(GameObject.Instantiate(startingPlatform, lastPos + spawnPos, startingPlatform.transform.rotation));
             lastPos += spawnPos;
         }
@@ -50,7 +50,7 @@ public class PlatformSpawn : MonoBehaviour
 
     public void spawnPlatform()
     {
-        Vector3 spawnPos = new Vector3(spawnDistance + Random.Range(-distanceVariation / 2, distanceVariation / 2), spawnHeight + Random.Range(-heightvariation / 2, heightvariation / 2));
+        Vector3 spawnPos = new Vector3(spawnDistance + Random.Range(-distanceVariation / 2, distanceVariation / 2), spawnHeight + Random.Range(-heightVariation / 2, heightVariation / 2));
         platformBuffer.Add(GameObject.Instantiate(startingPlatform, lastPos + spawnPos, startingPlatform.transform.rotation));
         lastPos += spawnPos;
         if(platformBuffer.Count >= platformBufferSize)

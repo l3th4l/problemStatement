@@ -13,7 +13,6 @@ public class LoadResetLevel : MonoBehaviour
     private void Start()
     {
         current_scene = SceneManager.GetActiveScene();
-        print(current_scene.name);
     }
 
     public void resetScene()

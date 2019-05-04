@@ -39,8 +39,8 @@ public class CharControl : MonoBehaviour
     float mousePressTime;
     float mouseReleaseTime;
 
-    bool midAir = false;
-
+    public bool midAir = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +61,7 @@ public class CharControl : MonoBehaviour
                 mousePressTime = Time.time;
             }
 
-            if (Input.GetKey(JumpKey))
+            if (Input.GetKey(JumpKey) && !dead)
             {
                 ForceSliderObject.SetActive(true);
                 ForceSlider.pressedTime = (Time.time - mousePressTime) / MaxBuildupTime;
@@ -93,13 +93,16 @@ public class CharControl : MonoBehaviour
         RB.AddForce(_jumpDir * (_buildupTime * (_MaxJumpForce - _MinJumpForce) + _MinJumpForce), ForceMode2D.Impulse);
     }
 
+    GameObject prevCollisionObject = null;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.collider.tag);
+        if (prevCollisionObject == null)
+            prevCollisionObject = collision.gameObject;
 
         if (collision.collider.CompareTag("platform"))
         {
-            ScoreCounter.addScore(ScorePerLand);
+            if (collision.gameObject != prevCollisionObject)
+                ScoreCounter.addScore(ScorePerLand);
 
             if(ScoreCounter.Score > 0)
                 PlatSpawner.spawnPlatform();
@@ -113,5 +116,7 @@ public class CharControl : MonoBehaviour
             dead = true;
             ScoreDisplayObject.SetActive(false);
         }
+        DeathTrigger.transform.position = new Vector3(DeathTrigger.transform.position.x, collision.transform.position.y -PlatSpawner.heightVariation);
+        prevCollisionObject = collision.gameObject;
     }
 }

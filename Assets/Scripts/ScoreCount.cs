@@ -13,7 +13,6 @@ public class ScoreCount : MonoBehaviour
 
     public void addScore(int _score)
     {
-        print(Score);
         Score += _score;
     }
 
