@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameOverMenu : MonoBehaviour
 {
     [SerializeField]
+    ScoreCount ScoreCounter;
+    [SerializeField]
     Text ScoreDisplayText;
     [SerializeField]
     Button ResetButton;
@@ -18,24 +20,36 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField]
     CharControl PlayerControl;
 
+    LoadResetLevel levelControl;
 
     // Start is called before the first frame update
     void Start()
     {
         // hide the menu at start
         show(false);
-
+        levelControl = GetComponent<LoadResetLevel>();
+        ResetButton.onClick.AddListener(resetScene);
+        MainMenuButton.onClick.AddListener(loadMainMenu);
     }
 
     // Update is called once per frame
     void Update()
     {
         show(PlayerControl.dead);
+        ScoreDisplayText.text = ScoreCounter.Score.ToString();
     }
 
     void show(bool active)
     {
         foreach (GameObject obj in MenuObjects)
             obj.SetActive(active);
+    }
+    void resetScene()
+    {
+        levelControl.resetScene();
+    }
+    void loadMainMenu()
+    {
+        levelControl.loadMainMenu();
     }
 }
